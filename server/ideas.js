@@ -27,8 +27,12 @@ ideasRouter.get('/', (req, res, next) =>{
 })
 
 ideasRouter.post('/', (req, res, next) =>{
-    const idea = addToDatabase('ideas', req.body)
-    res.status(201).send(idea)
+    if(!req.body){
+        res.status(400).send()
+    }else{
+        const idea = addToDatabase('ideas', req.body)
+        res.status(201).send(idea)
+    }
 })
 
 ideasRouter.get('/:ideaId', (req, res, next) =>{

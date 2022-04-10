@@ -1,5 +1,5 @@
 const checkMillionDollarIdea = (req, res, next) => {
-    const revenue = Number(req.numWeeks) * Number(weeklyRevenue);
+    const revenue = Number(req.numWeeks) * Number(req.weeklyRevenue);
     if(!req.numWeeks || !req.weeklyRevenue || revenue < 1000000){
         res.status(400).send()
     } else{
